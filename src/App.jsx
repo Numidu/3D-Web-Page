@@ -59,23 +59,26 @@ function SpotLightHelper() {
 }
 export default function App() {
   return (
-    <div id="canvas-container">
-      <Canvas>
-        <OrbitControls />
-        <AnimatedBox />
-        <gridHelper args={[10, 10]} />
-        <axesHelper args={[5]} />
-        <ambientLight intensity={0.2} color={0xfcfcfc} />
-        <directionalLight position={[0, 10, 5]} />
-        <ambientLight color={0xfcfcfc} intensity={0.8} />
+    <div id="dis">
+      <div id="canvas-container">
+        <Canvas>
+          <OrbitControls />
+          <AnimatedBox />
+          <gridHelper args={[10, 10]} />
+          <axesHelper args={[5]} />
+          <ambientLight intensity={0.2} color={0xfcfcfc} />
+          <directionalLight position={[0, 10, 5]} />
+          <ambientLight color={0xfcfcfc} intensity={0.8} />
 
-        <SpotLightHelper />
-        <Model />
-        <SpherewithTexture />
-      </Canvas>
-      <Leva />
-
-      <h1>Hello world</h1>
+          <SpotLightHelper />
+          <Model />
+          <SpherewithTexture />
+        </Canvas>
+        <Leva />
+      </div>
+      <div id="dis2">
+        <h1>hrr</h1>
+      </div>
     </div>
   );
 }
