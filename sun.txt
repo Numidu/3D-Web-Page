@@ -1,0 +1,116 @@
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import suns from "./assets/sun.jpg";
+import mercurys from "./assets/mercury.jpg";
+import stars from "./assets/stars.jpg";
+import { Canvas } from "@react-three/fiber";
+
+function Box() {
+  <mesh>
+    <bufferGeometry attach="geometry"/>
+    <meshStandardMaterial attach="material" color="orange"/>
+  </mesh>
+}
+
+
+export default function App() {
+  /*const mountRef = useRef(null);
+  useEffect(() => {
+    const mount = mountRef.current;
+
+    // Scene, camera, renderer
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(mount.clientWidth, mount.clientHeight);
+    mount.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      mount.clientWidth / mount.clientHeight,
+      0.1,
+      1000
+    );
+
+    const orbit = new OrbitControls(camera, renderer.domElement);
+    orbit.update();
+
+    camera.position.set(-90, 140, 140);
+    orbit.update();
+
+    const ambientLight = new THREE.AmbientLight(0x333333);
+    scene.add(ambientLight);
+
+    // background
+    const cubeTextureLoader = new THREE.CubeTextureLoader();
+    scene.background = cubeTextureLoader.load([
+      stars,
+      stars,
+      stars,
+      stars,
+      stars,
+      stars,
+    ]);
+
+    // sun
+    const textureLoader = new THREE.TextureLoader();
+    const sunGeo = new THREE.SphereGeometry(16, 30, 30);
+    const sunMat = new THREE.MeshBasicMaterial({
+      map: textureLoader.load(suns),
+      // make sure sun.jpg is in your folder
+    });
+    const sun = new THREE.Mesh(sunGeo, sunMat);
+    scene.add(sun);
+
+    // mercury
+    const mercury = new THREE.Mesh(
+      new THREE.SphereGeometry(3.2, 30, 30),
+      new THREE.MeshBasicMaterial({
+        map: textureLoader.load(mercurys),
+      })
+    );
+
+    // mercury object
+    const mercuryobj = new THREE.Object3D();
+    mercuryobj.add(mercury);
+    scene.add(mercuryobj);
+    mercury.position.x = 28;
+
+    //light for planer
+
+    const pointlight = new THREE.PointLight(0xffffff, 2, 300);
+    scene.add(pointlight);
+
+    function animate() {
+      sun.rotateY(0.004);
+      mercury.rotateY(0.004);
+      mercuryobj.rotateY(0.04);
+      renderer.render(scene, camera);
+    }
+
+    renderer.setAnimationLoop(animate);
+
+    return () => {
+      mount.removeChild(renderer.domElement);
+      renderer.dispose();
+    };
+  }, []);*/
+
+  return (
+  <div style={{ display: "flex", height: "100vh" }}>
+      {/* Left: 3D Cube */}
+      <div ref={mountRef} style={{ flex: 1, borderRight: "1px solid #ccc" }} />
+
+      {/* Right: Content */}
+      <div style={{ flex: 1, padding: "20px" }}>
+        <h1>My Website</h1>
+        <p>This is some text next to the 3D cube.</p>
+        <img
+          src="https://via.placeholder.com/300"
+          alt="example"
+          style={{ maxWidth: "100%", borderRadius: 8 }}
+        />
+      </div>
+    </div> 
+  );
+}

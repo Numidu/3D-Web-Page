@@ -1,0 +1,65 @@
+camer controlee npm install @react-three/drei
+//move by arrow keys
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+import { FirstPersonControls } from "@react-three/drei";
+import "./index.css";
+function AnimatedBox() {
+  const boxRef = useRef();
+  useFrame(() => {
+    boxRef.current.rotation.x += 0.01;
+    boxRef.current.rotation.y += 0.01;
+    boxRef.current.rotation.z += 0.01;
+  });
+  return (
+    <mesh ref={boxRef}>
+      <boxGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial color="orange" />
+    </mesh>
+  );
+}
+
+export default function App() {
+  return (
+    <div id="canvas-container">
+      <Canvas>
+        <FirstPersonControls movementSpeed={3} />
+        <AnimatedBox />
+        <directionalLight position={[0, 10, 5]} />
+      </Canvas>
+    </div>
+  );
+}
+
+
+move by mouse................................
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+import { OrbitControls } from "@react-three/drei";
+import "./index.css";
+function AnimatedBox() {
+  const boxRef = useRef();
+  useFrame(() => {
+    boxRef.current.rotation.x += 0.01;
+    boxRef.current.rotation.y += 0.01;
+    boxRef.current.rotation.z += 0.01;
+  });
+  return (
+    <mesh ref={boxRef}>
+      <boxGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial color="orange" />
+    </mesh>
+  );
+}
+
+export default function App() {
+  return (
+    <div id="canvas-container">
+      <Canvas>
+        <OrbitControls />
+        <AnimatedBox />
+        <directionalLight position={[0, 10, 5]} />
+      </Canvas>
+    </div>
+  );
+}
