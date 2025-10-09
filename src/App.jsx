@@ -32,6 +32,7 @@ function AnimatedBox() {
   );
 }
 import { useEffect } from "react";
+import RetrieveData from "./retriveData";
 
 function Model() {
   const result = useLoader(GLTFLoader, "/Bat.gltf");
@@ -77,7 +78,7 @@ export default function App() {
         <Leva />
       </div>
       <div id="dis2">
-        <h1>hrr</h1>
+        <RetrieveData />
       </div>
     </div>
   );
