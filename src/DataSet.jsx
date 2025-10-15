@@ -27,24 +27,48 @@ function DataSet() {
   }, []); // ✅ array is inside useEffect()
 
   return (
-    <div>
-      <RetrieveData rel={relod} />
-      <input
-        type="text"
-        placeholder="ID"
-        onChange={(e) => setId(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Name"
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Address"
-        onChange={(e) => setAddress(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Add User</button>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
+      {/* Retrieve Data Section */}
+      <div className="w-full max-w-2xl mb-6">
+        <RetrieveData rel={relod} />
+      </div>
+
+      {/* Form Container */}
+      <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
+        <h2 className="text-2xl font-semibold text-center text-indigo-600 mb-6">
+          ➕ Add New User
+        </h2>
+
+        <div className="flex flex-col space-y-4">
+          <input
+            type="text"
+            placeholder="Enter ID"
+            onChange={(e) => setId(e.target.value)}
+            className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+          />
+
+          <input
+            type="text"
+            placeholder="Enter Name"
+            onChange={(e) => setName(e.target.value)}
+            className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+          />
+
+          <input
+            type="text"
+            placeholder="Enter Address"
+            onChange={(e) => setAddress(e.target.value)}
+            className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+          />
+
+          <button
+            onClick={handleSubmit}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg py-2 transition duration-200"
+          >
+            Add User
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
