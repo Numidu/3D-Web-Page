@@ -1,11 +1,14 @@
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { useRef } from "react";
+import { use, useRef } from "react";
 import { OrbitControls, useHelper } from "@react-three/drei";
 import "./index.css";
 import { useControls, Leva } from "leva";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { SpotLight, TextureLoader } from "three";
 import { color } from "three/tsl";
+import { useEffect } from "react";
+import RetrieveData from "./retriveData";
+import DataSet from "./DataSet";
 
 function AnimatedBox() {
   const boxRef = useRef();
@@ -31,8 +34,6 @@ function AnimatedBox() {
     </mesh>
   );
 }
-import { useEffect } from "react";
-import RetrieveData from "./retriveData";
 
 function Model() {
   const result = useLoader(GLTFLoader, "/Bat.gltf");
@@ -58,6 +59,7 @@ function SpotLightHelper() {
   });
   return <spotLight ref={light} intensity={50} position={[4, 2, 3]} />;
 }
+
 export default function App() {
   return (
     <div id="dis">
@@ -78,7 +80,7 @@ export default function App() {
         <Leva />
       </div>
       <div id="dis2">
-        <RetrieveData />
+        <DataSet />
       </div>
     </div>
   );

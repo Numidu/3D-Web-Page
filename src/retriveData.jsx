@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function RetrieveData() {
+function RetrieveData({ rel }) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -9,7 +9,7 @@ function RetrieveData() {
       .get("http://localhost:8081/api/user/getUser")
       .then((res) => setUsers(res.data))
       .catch((err) => console.error("Fetching error:", err));
-  }, []); // ✅ array is inside useEffect()
+  }, [rel]); // ✅ array is inside useEffect()
 
   return (
     <>
